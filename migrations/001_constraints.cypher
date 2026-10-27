@@ -1,0 +1,12 @@
+CREATE CONSTRAINT assertion_identity IF NOT EXISTS FOR (n:Assertion) REQUIRE (n.dataset_id, n.id) IS UNIQUE;
+CREATE CONSTRAINT condition_identity IF NOT EXISTS FOR (n:Condition) REQUIRE (n.dataset_id, n.id) IS UNIQUE;
+CREATE CONSTRAINT datacategory_identity IF NOT EXISTS FOR (n:DataCategory) REQUIRE (n.dataset_id, n.id) IS UNIQUE;
+CREATE CONSTRAINT entity_identity IF NOT EXISTS FOR (n:Entity) REQUIRE (n.dataset_id, n.id) IS UNIQUE;
+CREATE CONSTRAINT organization_identity IF NOT EXISTS FOR (n:Organization) REQUIRE (n.dataset_id, n.id) IS UNIQUE;
+CREATE CONSTRAINT process_identity IF NOT EXISTS FOR (n:Process) REQUIRE (n.dataset_id, n.id) IS UNIQUE;
+CREATE CONSTRAINT run_identity IF NOT EXISTS FOR (n:Run) REQUIRE (n.dataset_id, n.id) IS UNIQUE;
+CREATE CONSTRAINT scenario_identity IF NOT EXISTS FOR (n:Scenario) REQUIRE (n.dataset_id, n.id) IS UNIQUE;
+CREATE CONSTRAINT service_identity IF NOT EXISTS FOR (n:Service) REQUIRE (n.dataset_id, n.id) IS UNIQUE;
+CREATE CONSTRAINT source_identity IF NOT EXISTS FOR (n:Source) REQUIRE (n.dataset_id, n.id) IS UNIQUE;
+CREATE CONSTRAINT dataset_version IF NOT EXISTS FOR (n:DatasetVersion) REQUIRE (n.dataset_id, n.version) IS UNIQUE;
+CREATE CONSTRAINT revision_identity IF NOT EXISTS FOR (n:Revision) REQUIRE (n.dataset_id, n.version, n.id) IS UNIQUE;

@@ -1,0 +1,719 @@
+{
+  "dataset_id": "rossiya",
+  "version": "1",
+  "synthetic": false,
+  "title": "Россия — Леонардо: регистрация и задержки рейсов 28.09.2023",
+  "entities": [
+    {
+      "id": "rossiya",
+      "dataset_id": "rossiya",
+      "label": "Organization",
+      "name": "Авиакомпания Россия",
+      "role": "customer",
+      "scope_note": "Российский авиаперевозчик; только процессы из сообщений компании от 28.09.2023. Не подменяется всей группой Аэрофлот.",
+      "synthetic": false
+    },
+    {
+      "id": "sirena",
+      "dataset_id": "rossiya",
+      "label": "Organization",
+      "name": "Сирена-Трэвел",
+      "role": "service_provider",
+      "scope_note": "Российский разработчик/поставщик системы, названный авиакомпанией. Юридическая схема договора, хостинга и связь владения с Ростехом не установлены.",
+      "synthetic": false
+    },
+    {
+      "id": "leonardo",
+      "dataset_id": "rossiya",
+      "label": "Service",
+      "name": "Леонардо: система бронирования и регистрации",
+      "kind": "service",
+      "description": "Услуга системы, названная в историческом сообщении перевозчика; конкретный технический контур неизвестен."
+    },
+    {
+      "id": "registration",
+      "dataset_id": "rossiya",
+      "label": "Process",
+      "name": "Регистрация пассажиров и отправление рейсов России",
+      "owner_id": "rossiya",
+      "description": "Регистрация в аэропортах маршрутной сети; фактические задержки перечислены отдельно.",
+      "threshold": null,
+      "threshold_origin": "unknown",
+      "threshold_evidence_ids": []
+    },
+    {
+      "id": "src_rossiya_disruption",
+      "dataset_id": "rossiya",
+      "label": "Source",
+      "title": "Сообщение о затруднении регистрации",
+      "publisher": "Авиакомпания Россия",
+      "url": "https://t.me/rossiya_airlines/980",
+      "published_at": "2023-09-28",
+      "accessed_at": "2026-10-26",
+      "excerpt": "затруднена регистрация в аэропортах маршрутной сети компании",
+      "limitations": "Первичное сообщение; текст прочитан через публичное Telegram embed-представление. Не устанавливает начало сбоя, число пассажиров или текущую архитектуру."
+    },
+    {
+      "id": "src_rossiya_delays",
+      "dataset_id": "rossiya",
+      "label": "Source",
+      "title": "Перечень задержанных рейсов по состоянию на 11:55 мск",
+      "publisher": "Авиакомпания Россия",
+      "url": "https://t.me/rossiya_airlines/981",
+      "published_at": "2023-09-28",
+      "accessed_at": "2026-10-26",
+      "excerpt": "на 11.55 мск задержано отправление рейсов из Шереметьево",
+      "limitations": "Первичное сообщение, опубликовано 08:56:47 UTC. Перечислен 21 рейс; это снимок на 11:55 мск, не итог суток. Задержка рейса не равна длительности отказа системы. Денежные потери не раскрыты."
+    },
+    {
+      "id": "src_rossiya_recovery",
+      "dataset_id": "rossiya",
+      "label": "Source",
+      "title": "Сообщение о восстановлении Леонардо",
+      "publisher": "Авиакомпания Россия",
+      "url": "https://t.me/rossiya_airlines/982",
+      "published_at": "2023-09-28",
+      "accessed_at": "2026-10-26",
+      "excerpt": "Работоспособность системы Leonardo (Сирена-Тревел) восстановлена!",
+      "limitations": "Первичное сообщение опубликовано 09:00:06 UTC. Время публикации не устанавливает точное время восстановления всех процессов и не даёт длительность сбоя."
+    },
+    {
+      "id": "src_rostec_ddos",
+      "dataset_id": "rossiya",
+      "label": "Source",
+      "title": "Сообщение о DDoS-атаке на Леонардо",
+      "publisher": "Ростех",
+      "url": "https://t.me/rostecru/6404",
+      "published_at": "2023-09-28",
+      "accessed_at": "2026-10-26",
+      "excerpt": "на систему «Леонардо» идет массированная DDOS-атака",
+      "limitations": "Первичное заявление участника разработки. Квалификация DDoS дана источником; независимая экспертиза, компрометация серверов и атрибуция злоумышленника не установлены."
+    },
+    {
+      "id": "r_provider",
+      "dataset_id": "rossiya",
+      "label": "Assertion",
+      "subject_id": "sirena",
+      "predicate": "PROVIDES",
+      "object_id": "leonardo",
+      "status": "source_supported",
+      "as_of_date": "2023-09-28",
+      "scope_note": "В сообщении перевозчика система обозначена как Leonardo (Сирена-Тревел), поставщик восстанавливает её работу; только контур события 28.09.2023.",
+      "evidence_ids": [
+        "src_rossiya_disruption"
+      ],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "r_uses",
+      "dataset_id": "rossiya",
+      "label": "Assertion",
+      "subject_id": "registration",
+      "predicate": "USES",
+      "object_id": "leonardo",
+      "status": "source_supported",
+      "as_of_date": "2023-09-28",
+      "scope_note": "Сбой названной системы затруднил регистрацию; перевозчик связал с ним перечисленные задержки. Текущая зависимость в 2026 году не утверждается.",
+      "evidence_ids": [
+        "src_rossiya_disruption",
+        "src_rossiya_delays"
+      ],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "r_owner",
+      "dataset_id": "rossiya",
+      "label": "Assertion",
+      "subject_id": "rossiya",
+      "predicate": "OWNS_PROCESS",
+      "object_id": "registration",
+      "status": "source_supported",
+      "as_of_date": "2023-09-28",
+      "scope_note": "Сообщение касается регистрации пассажиров самой авиакомпании Россия.",
+      "evidence_ids": [
+        "src_rossiya_disruption"
+      ],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "service_disrupted",
+      "dataset_id": "rossiya",
+      "label": "Condition",
+      "description": "28.09.2023 рассматриваемая система была затронута отказом; DDoS указан Ростехом.",
+      "value": true,
+      "origin": "source_supported",
+      "evidence_ids": [
+        "src_rossiya_disruption",
+        "src_rostec_ddos"
+      ],
+      "public_source_hint": "Датированные сообщения заказчика и поставщика об этом инциденте."
+    },
+    {
+      "id": "registration_affected",
+      "dataset_id": "rossiya",
+      "label": "Condition",
+      "description": "28.09.2023 регистрация России использовала затронутую систему и была затруднена.",
+      "value": true,
+      "origin": "source_supported",
+      "evidence_ids": [
+        "src_rossiya_disruption"
+      ],
+      "public_source_hint": "Датированные сообщения заказчика и поставщика об этом инциденте."
+    },
+    {
+      "id": "R1",
+      "dataset_id": "rossiya",
+      "label": "Scenario",
+      "name": "Леонардо: историческая реконструкция 28.09.2023",
+      "incident_type": "availability",
+      "origin_id": "sirena",
+      "affected_service_id": "leonardo",
+      "rule_ids": [
+        "r_provider_rule",
+        "r_consumer_rule"
+      ],
+      "data_category_ids": [],
+      "analysis_context": "historical_reconstruction",
+      "incident_date": "2023-09-28",
+      "incident_date_basis": "occurred_on",
+      "calculation_model": "none",
+      "description": "Датированный отказ внешней системы и сообщённые перевозчиком операционные последствия. Исторические задержки хранятся как наблюдения; параметры очереди EDI к регистрации рейсов не применяются."
+    },
+    {
+      "id": "delay_FV6311",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 60,
+      "unit": "минут",
+      "subject_ref": "FV6311",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6585",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 60,
+      "unit": "минут",
+      "subject_ref": "FV6585",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6483",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 45,
+      "unit": "минут",
+      "subject_ref": "FV6483",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6075",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 60,
+      "unit": "минут",
+      "subject_ref": "FV6075",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6085",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 25,
+      "unit": "минут",
+      "subject_ref": "FV6085",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6717",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 20,
+      "unit": "минут",
+      "subject_ref": "FV6717",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6325",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 3,
+      "unit": "минут",
+      "subject_ref": "FV6325",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6353",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 6,
+      "unit": "минут",
+      "subject_ref": "FV6353",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6082",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 91,
+      "unit": "минут",
+      "subject_ref": "FV6082",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6084",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 24,
+      "unit": "минут",
+      "subject_ref": "FV6084",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6013",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 27,
+      "unit": "минут",
+      "subject_ref": "FV6013",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6417",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 17,
+      "unit": "минут",
+      "subject_ref": "FV6417",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6570",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 135,
+      "unit": "минут",
+      "subject_ref": "FV6570",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6729",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 19,
+      "unit": "минут",
+      "subject_ref": "FV6729",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6733",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 15,
+      "unit": "минут",
+      "subject_ref": "FV6733",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6345",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 50,
+      "unit": "минут",
+      "subject_ref": "FV6345",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6324",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 45,
+      "unit": "минут",
+      "subject_ref": "FV6324",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6406",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 37,
+      "unit": "минут",
+      "subject_ref": "FV6406",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6424",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 22,
+      "unit": "минут",
+      "subject_ref": "FV6424",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6448",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 22,
+      "unit": "минут",
+      "subject_ref": "FV6448",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "delay_FV6891",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Задержка вылета",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "flight_delay_minutes",
+      "value": 30,
+      "unit": "минут",
+      "subject_ref": "FV6891",
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_delays"
+      ],
+      "limitations": "Снимок на 11:55 мск; не итог суток и не длительность сбоя системы."
+    },
+    {
+      "id": "registration_disruption",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Перевозчик сообщил о затруднении регистрации",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "registration_disrupted",
+      "value": null,
+      "unit": "качественно",
+      "subject_ref": null,
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_disruption"
+      ],
+      "limitations": "Сведения из заявления источника; денежный ущерб не установлен."
+    },
+    {
+      "id": "recovery_announced",
+      "dataset_id": "rossiya",
+      "label": "Observation",
+      "scenario_id": "R1",
+      "process_id": "registration",
+      "reported_on": "2023-09-28",
+      "description": "Перевозчик сообщил о восстановлении системы",
+      "status": "source_supported",
+      "kind": "response",
+      "metric": "recovery_announced",
+      "value": null,
+      "unit": "качественно",
+      "subject_ref": null,
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_rossiya_recovery"
+      ],
+      "limitations": "Сведения из заявления источника; денежный ущерб не установлен."
+    }
+  ],
+  "rules": [
+    {
+      "id": "r_provider_rule",
+      "description": "r_provider_rule",
+      "assertion_ids": [
+        "r_provider"
+      ],
+      "direction": "forward",
+      "condition_ids": [
+        "service_disrupted"
+      ]
+    },
+    {
+      "id": "r_consumer_rule",
+      "description": "r_consumer_rule",
+      "assertion_ids": [
+        "r_uses"
+      ],
+      "direction": "reverse",
+      "condition_ids": [
+        "registration_affected"
+      ]
+    }
+  ],
+  "dependency_groups": [],
+  "parameters": {
+    "lambda": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "T": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "mu_b": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "mu_r": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "volume": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "change_scale": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "recoverable": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "threshold": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    }
+  },
+  "severity_policy": {
+    "origin": "assumption",
+    "evidence_ids": [],
+    "categories": {}
+  },
+  "sha256": "1b72c5d7eb964db071be8169b87814e34a0085d8c203a2b6c891ef202195fba8"
+}

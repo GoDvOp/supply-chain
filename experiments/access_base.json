@@ -1,0 +1,34 @@
+{
+  "conditions": {
+    "active_access": {
+      "value": true,
+      "explanation": "Экспериментальное условие, не факт о компании."
+    },
+    "credential_usable": {
+      "value": true,
+      "explanation": "Экспериментальное условие, не факт о компании."
+    },
+    "can_modify_hr": {
+      "value": true,
+      "explanation": "Экспериментальное условие, не факт о компании."
+    },
+    "restrictions_allow": {
+      "value": true,
+      "explanation": "Экспериментальное условие, не факт о компании."
+    }
+  },
+  "parameters": {
+    "volume": {
+      "value": 500,
+      "explanation": "Проектная гипотеза для демонстрации."
+    },
+    "change_scale": {
+      "value": 150,
+      "explanation": "Проектная гипотеза для демонстрации."
+    },
+    "recoverable": {
+      "value": true,
+      "explanation": "Проектная гипотеза для демонстрации."
+    }
+  }
+}

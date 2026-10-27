@@ -1,0 +1,18 @@
+{
+  "conditions": {
+    "docs_present": {
+      "value": true,
+      "explanation": "Экспериментальное условие, не факт о компании."
+    },
+    "docs_readable": {
+      "value": true,
+      "explanation": "Экспериментальное условие, не факт о компании."
+    }
+  },
+  "parameters": {
+    "volume": {
+      "value": 500,
+      "explanation": "Проектная гипотеза для демонстрации."
+    }
+  }
+}

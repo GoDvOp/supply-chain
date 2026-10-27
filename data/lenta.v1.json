@@ -1,0 +1,566 @@
+{
+  "dataset_id": "lenta",
+  "version": "1",
+  "synthetic": false,
+  "title": "Лента: КЭДО и обмен EDI",
+  "entities": [
+    {
+      "id": "lenta",
+      "dataset_id": "lenta",
+      "label": "Organization",
+      "name": "Лента (документированный контур)",
+      "role": "customer",
+      "scope_note": "Бренд или группа в пределах публикаций; конкретное юридическое лицо не установлено.",
+      "synthetic": false
+    },
+    {
+      "id": "directum",
+      "dataset_id": "lenta",
+      "label": "Organization",
+      "name": "Directum",
+      "role": "developer",
+      "scope_note": "Бренд или группа в пределах публикаций; конкретное юридическое лицо не установлено.",
+      "synthetic": false
+    },
+    {
+      "id": "t1",
+      "dataset_id": "lenta",
+      "label": "Organization",
+      "name": "Холдинг Т1",
+      "role": "integrator_group",
+      "scope_note": "Бренд или группа в пределах публикаций; конкретное юридическое лицо не установлено.",
+      "synthetic": false
+    },
+    {
+      "id": "ediweb",
+      "dataset_id": "lenta",
+      "label": "Organization",
+      "name": "Эдивеб",
+      "role": "edi_provider_brand",
+      "scope_note": "Бренд или группа в пределах публикаций; конкретное юридическое лицо не установлено.",
+      "synthetic": false
+    },
+    {
+      "id": "hrpro",
+      "dataset_id": "lenta",
+      "label": "Service",
+      "name": "Directum HR Pro",
+      "kind": "software",
+      "description": "Directum HR Pro"
+    },
+    {
+      "id": "edi",
+      "dataset_id": "lenta",
+      "label": "Service",
+      "name": "EDI Platform — поток Ленты",
+      "kind": "service",
+      "description": "EDI Platform — поток Ленты"
+    },
+    {
+      "id": "hr",
+      "dataset_id": "lenta",
+      "label": "Process",
+      "name": "Кадровый электронный документооборот",
+      "owner_id": "lenta",
+      "description": "Документированный контур, без утверждения об исключительности зависимости.",
+      "threshold": null,
+      "threshold_origin": "unknown",
+      "threshold_evidence_ids": []
+    },
+    {
+      "id": "orders",
+      "dataset_id": "lenta",
+      "label": "Process",
+      "name": "Обмен заказами и документами с поставщиками",
+      "owner_id": "lenta",
+      "description": "Документированный контур, без утверждения об исключительности зависимости.",
+      "threshold": null,
+      "threshold_origin": "unknown",
+      "threshold_evidence_ids": []
+    },
+    {
+      "id": "hr_docs",
+      "dataset_id": "lenta",
+      "label": "DataCategory",
+      "name": "Заявления, приказы и ЛНА",
+      "description": "Категории из описания КЭДО; реальные документы и персональные данные не загружаются."
+    },
+    {
+      "id": "order_docs",
+      "dataset_id": "lenta",
+      "label": "DataCategory",
+      "name": "Заказы ORDERS",
+      "description": "Сообщения о поставках; доля потока неизвестна."
+    },
+    {
+      "id": "src_directum",
+      "dataset_id": "lenta",
+      "label": "Source",
+      "title": "Лента управляет кадровыми документами в Directum HR Pro",
+      "publisher": "Directum",
+      "url": "https://www.directum.ru/blog-post/lenta_upravljaet_kadrovymi_dokumentami__v_directum_hr_pro",
+      "published_at": null,
+      "accessed_at": "2026-10-26",
+      "excerpt": "Работы на проекте выполнил ИТ-холдинг Т1",
+      "limitations": "Дата 23.10.2024 из ТЗ на открытой странице не подтверждена; описан исторический проект. Нет данных о текущих доступах и конкретном юрлице."
+    },
+    {
+      "id": "src_t1",
+      "dataset_id": "lenta",
+      "label": "Source",
+      "title": "Более 85% сотрудников Ленты перешли на КЭДО",
+      "publisher": "Холдинг Т1",
+      "url": "https://t1.ru/media/news/bolee-85-sotrudnikov-lenty-pereshli-na-kadrovyy-elektronnyy-dokumentooborot",
+      "published_at": "2024-07-22",
+      "accessed_at": "2026-10-26",
+      "excerpt": "Проект осуществил Холдинг Т1.",
+      "limitations": "На странице дата 22 июля, в тексте события — 18 июля 2024. Участие во внедрении не доказывает действующий доступ. Исторические показатели охвата не перенесены на текущий момент."
+    },
+    {
+      "id": "src_edi",
+      "dataset_id": "lenta",
+      "label": "Source",
+      "title": "Как работать с Лентой по EDI",
+      "publisher": "Эдивеб",
+      "url": "https://ediweb.com/ru-ru/support/kb/540",
+      "published_at": "2026-10-06",
+      "accessed_at": "2026-10-26",
+      "excerpt": "Как работать с «Лентой» по EDI",
+      "limitations": "Инструкция показывает поддерживаемые виды сообщений; не доказывает долю трафика, эксклюзивность, SLA или отсутствие резерва. Дата внизу страницы записана как опубликованная/обновлённая, различие неизвестно."
+    },
+    {
+      "id": "src_orders",
+      "dataset_id": "lenta",
+      "label": "Source",
+      "title": "Описание бизнес-информации в Заказе от сети Лента",
+      "publisher": "Эдивеб",
+      "url": "https://ediweb.com/ru-ru/support/kb/114",
+      "published_at": null,
+      "accessed_at": "2026-10-26",
+      "excerpt": "ORDERS (Заказ) – EDI-сообщение",
+      "limitations": "Подтверждает назначение заказа и его исправление/отмену, но не реальные объёмы и длительности обработки."
+    },
+    {
+      "id": "a_develops",
+      "dataset_id": "lenta",
+      "label": "Assertion",
+      "subject_id": "directum",
+      "predicate": "DEVELOPS",
+      "object_id": "hrpro",
+      "status": "source_supported",
+      "as_of_date": "2026-10-26",
+      "scope_note": "Directum HR Pro — продукт Directum; описание опубликовано разработчиком.",
+      "evidence_ids": [
+        "src_directum"
+      ],
+      "review_after_days": 180,
+      "conflicts_with": []
+    },
+    {
+      "id": "a_implemented",
+      "dataset_id": "lenta",
+      "label": "Assertion",
+      "subject_id": "t1",
+      "predicate": "IMPLEMENTED",
+      "object_id": "hrpro",
+      "status": "source_supported",
+      "as_of_date": "2026-10-26",
+      "scope_note": "Т1 выполнил проект внедрения в Ленте; доступ после внедрения неизвестен.",
+      "evidence_ids": [
+        "src_t1",
+        "src_directum"
+      ],
+      "review_after_days": 180,
+      "conflicts_with": []
+    },
+    {
+      "id": "a_hr_uses",
+      "dataset_id": "lenta",
+      "label": "Assertion",
+      "subject_id": "hr",
+      "predicate": "USES",
+      "object_id": "hrpro",
+      "status": "source_supported",
+      "as_of_date": "2026-10-26",
+      "scope_note": "Описанный процесс КЭДО использует Directum HR Pro. Не подтверждает исключительность или актуальный охват.",
+      "evidence_ids": [
+        "src_t1",
+        "src_directum"
+      ],
+      "review_after_days": 180,
+      "conflicts_with": []
+    },
+    {
+      "id": "a_provides",
+      "dataset_id": "lenta",
+      "label": "Assertion",
+      "subject_id": "ediweb",
+      "predicate": "PROVIDES",
+      "object_id": "edi",
+      "status": "source_supported",
+      "as_of_date": "2026-10-26",
+      "scope_note": "Инструкции Эдивеб для работы с Лентой по EDI Platform.",
+      "evidence_ids": [
+        "src_edi"
+      ],
+      "review_after_days": 180,
+      "conflicts_with": []
+    },
+    {
+      "id": "a_orders_uses",
+      "dataset_id": "lenta",
+      "label": "Assertion",
+      "subject_id": "orders",
+      "predicate": "USES",
+      "object_id": "edi",
+      "status": "source_supported",
+      "as_of_date": "2026-10-26",
+      "scope_note": "Контур обмена заказами ORDERS; доля потока и резерв неизвестны.",
+      "evidence_ids": [
+        "src_edi",
+        "src_orders"
+      ],
+      "review_after_days": 180,
+      "conflicts_with": []
+    },
+    {
+      "id": "a_owns_hr",
+      "dataset_id": "lenta",
+      "label": "Assertion",
+      "subject_id": "lenta",
+      "predicate": "OWNS_PROCESS",
+      "object_id": "hr",
+      "status": "source_supported",
+      "as_of_date": "2026-10-26",
+      "scope_note": "Процесс описан для Ленты в публикации; юридический периметр не расширяется.",
+      "evidence_ids": [
+        "src_t1"
+      ],
+      "review_after_days": 180,
+      "conflicts_with": []
+    },
+    {
+      "id": "a_owns_orders",
+      "dataset_id": "lenta",
+      "label": "Assertion",
+      "subject_id": "lenta",
+      "predicate": "OWNS_PROCESS",
+      "object_id": "orders",
+      "status": "source_supported",
+      "as_of_date": "2026-10-26",
+      "scope_note": "Контур документов Ленты, описанный инструкцией.",
+      "evidence_ids": [
+        "src_edi"
+      ],
+      "review_after_days": 180,
+      "conflicts_with": []
+    },
+    {
+      "id": "update_product",
+      "dataset_id": "lenta",
+      "label": "Condition",
+      "description": "Затронут используемый в контуре продукт",
+      "value": "unknown",
+      "origin": "unknown",
+      "evidence_ids": [],
+      "public_source_hint": "Публичная документация продукта, опубликованный регламент доступа или описание архитектуры; только в пределах раскрытого контура."
+    },
+    {
+      "id": "package_installed",
+      "dataset_id": "lenta",
+      "label": "Condition",
+      "description": "Изменённый пакет установлен в рассматриваемом контуре",
+      "value": "unknown",
+      "origin": "unknown",
+      "evidence_ids": [],
+      "public_source_hint": "Публичная документация продукта, опубликованный регламент доступа или описание архитектуры; только в пределах раскрытого контура."
+    },
+    {
+      "id": "checks_bypassed",
+      "dataset_id": "lenta",
+      "label": "Condition",
+      "description": "Проверки не предотвратили воздействие",
+      "value": "unknown",
+      "origin": "unknown",
+      "evidence_ids": [],
+      "public_source_hint": "Публичная документация продукта, опубликованный регламент доступа или описание архитектуры; только в пределах раскрытого контура."
+    },
+    {
+      "id": "component_can_modify",
+      "dataset_id": "lenta",
+      "label": "Condition",
+      "description": "Права компонента позволяют изменить кадровые документы",
+      "value": "unknown",
+      "origin": "unknown",
+      "evidence_ids": [],
+      "public_source_hint": "Публичная документация продукта, опубликованный регламент доступа или описание архитектуры; только в пределах раскрытого контура."
+    },
+    {
+      "id": "active_access",
+      "dataset_id": "lenta",
+      "label": "Condition",
+      "description": "У Т1 есть действующий доступ к рассматриваемому контуру",
+      "value": "unknown",
+      "origin": "unknown",
+      "evidence_ids": [],
+      "public_source_hint": "Публичная документация продукта, опубликованный регламент доступа или описание архитектуры; только в пределах раскрытого контура."
+    },
+    {
+      "id": "credential_usable",
+      "dataset_id": "lenta",
+      "label": "Condition",
+      "description": "Скомпрометированное средство позволяет использовать этот доступ",
+      "value": "unknown",
+      "origin": "unknown",
+      "evidence_ids": [],
+      "public_source_hint": "Публичная документация продукта, опубликованный регламент доступа или описание архитектуры; только в пределах раскрытого контура."
+    },
+    {
+      "id": "can_modify_hr",
+      "dataset_id": "lenta",
+      "label": "Condition",
+      "description": "Права позволяют конкретное действие: изменить кадровый документ",
+      "value": "unknown",
+      "origin": "unknown",
+      "evidence_ids": [],
+      "public_source_hint": "Публичная документация продукта, опубликованный регламент доступа или описание архитектуры; только в пределах раскрытого контура."
+    },
+    {
+      "id": "restrictions_allow",
+      "dataset_id": "lenta",
+      "label": "Condition",
+      "description": "Дополнительные ограничения не блокируют это действие",
+      "value": "unknown",
+      "origin": "unknown",
+      "evidence_ids": [],
+      "public_source_hint": "Публичная документация продукта, опубликованный регламент доступа или описание архитектуры; только в пределах раскрытого контура."
+    },
+    {
+      "id": "flow_affected",
+      "dataset_id": "lenta",
+      "label": "Condition",
+      "description": "Рассматриваемый поток использует затронутую услугу во время события",
+      "value": "unknown",
+      "origin": "unknown",
+      "evidence_ids": [],
+      "public_source_hint": "Публичная документация продукта, опубликованный регламент доступа или описание архитектуры; только в пределах раскрытого контура."
+    },
+    {
+      "id": "docs_present",
+      "dataset_id": "lenta",
+      "label": "Condition",
+      "description": "Соответствующие кадровые документы присутствуют в затронутом контуре",
+      "value": "unknown",
+      "origin": "unknown",
+      "evidence_ids": [],
+      "public_source_hint": "Публичная документация продукта, опубликованный регламент доступа или описание архитектуры; только в пределах раскрытого контура."
+    },
+    {
+      "id": "docs_readable",
+      "dataset_id": "lenta",
+      "label": "Condition",
+      "description": "Нарушитель может прочитать эти документы",
+      "value": "unknown",
+      "origin": "unknown",
+      "evidence_ids": [],
+      "public_source_hint": "Публичная документация продукта, опубликованный регламент доступа или описание архитектуры; только в пределах раскрытого контура."
+    },
+    {
+      "id": "S1",
+      "dataset_id": "lenta",
+      "label": "Scenario",
+      "name": "Изменённое обновление Directum HR Pro",
+      "incident_type": "update",
+      "origin_id": "directum",
+      "affected_service_id": "hrpro",
+      "rule_ids": [
+        "r_update",
+        "r_hr_consumer"
+      ],
+      "data_category_ids": [
+        "hr_docs"
+      ],
+      "description": "Условный исходный инцидент. Последствия зависят от явно перечисленных условий."
+    },
+    {
+      "id": "S2",
+      "dataset_id": "lenta",
+      "label": "Scenario",
+      "name": "Использование доступа подрядчика Т1",
+      "incident_type": "access",
+      "origin_id": "t1",
+      "affected_service_id": "hrpro",
+      "rule_ids": [
+        "r_access",
+        "r_hr_consumer"
+      ],
+      "data_category_ids": [
+        "hr_docs"
+      ],
+      "description": "Условный исходный инцидент. Последствия зависят от явно перечисленных условий."
+    },
+    {
+      "id": "S3",
+      "dataset_id": "lenta",
+      "label": "Scenario",
+      "name": "Недоступность EDI",
+      "incident_type": "availability",
+      "origin_id": "ediweb",
+      "affected_service_id": "edi",
+      "rule_ids": [
+        "r_edi_provider",
+        "r_edi_consumer"
+      ],
+      "data_category_ids": [],
+      "description": "Условный исходный инцидент. Последствия зависят от явно перечисленных условий."
+    },
+    {
+      "id": "S4",
+      "dataset_id": "lenta",
+      "label": "Scenario",
+      "name": "Раскрытие кадровых документов в контуре HR Pro",
+      "incident_type": "disclosure",
+      "origin_id": "directum",
+      "affected_service_id": "hrpro",
+      "rule_ids": [
+        "r_disclosure",
+        "r_hr_consumer"
+      ],
+      "data_category_ids": [
+        "hr_docs"
+      ],
+      "description": "Условный исходный инцидент. Последствия зависят от явно перечисленных условий."
+    }
+  ],
+  "rules": [
+    {
+      "id": "r_update",
+      "description": "r_update",
+      "assertion_ids": [
+        "a_develops"
+      ],
+      "direction": "forward",
+      "condition_ids": [
+        "update_product",
+        "package_installed",
+        "checks_bypassed",
+        "component_can_modify"
+      ]
+    },
+    {
+      "id": "r_access",
+      "description": "r_access",
+      "assertion_ids": [
+        "a_implemented"
+      ],
+      "direction": "forward",
+      "condition_ids": [
+        "active_access",
+        "credential_usable",
+        "can_modify_hr",
+        "restrictions_allow"
+      ]
+    },
+    {
+      "id": "r_hr_consumer",
+      "description": "r_hr_consumer",
+      "assertion_ids": [
+        "a_hr_uses"
+      ],
+      "direction": "reverse",
+      "condition_ids": []
+    },
+    {
+      "id": "r_edi_provider",
+      "description": "r_edi_provider",
+      "assertion_ids": [
+        "a_provides"
+      ],
+      "direction": "forward",
+      "condition_ids": []
+    },
+    {
+      "id": "r_edi_consumer",
+      "description": "r_edi_consumer",
+      "assertion_ids": [
+        "a_orders_uses"
+      ],
+      "direction": "reverse",
+      "condition_ids": [
+        "flow_affected"
+      ]
+    },
+    {
+      "id": "r_disclosure",
+      "description": "r_disclosure",
+      "assertion_ids": [
+        "a_develops"
+      ],
+      "direction": "forward",
+      "condition_ids": [
+        "docs_present",
+        "docs_readable"
+      ]
+    }
+  ],
+  "parameters": {
+    "lambda": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "T": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "mu_b": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "mu_r": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "volume": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "change_scale": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "recoverable": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "threshold": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    }
+  },
+  "dependency_groups": [],
+  "sha256": "fed686040a93eef49321269ed05c64a5a8b2c4e7f82db5c27d394f96190cd2bc",
+  "severity_policy": {
+    "origin": "assumption",
+    "evidence_ids": [],
+    "categories": {
+      "hr_docs": {
+        "volume_first": 100,
+        "volume_second": 10000,
+        "change_scale_second": 1000
+      },
+      "order_docs": {
+        "volume_first": 100,
+        "volume_second": 10000,
+        "change_scale_second": 1000
+      }
+    }
+  }
+}

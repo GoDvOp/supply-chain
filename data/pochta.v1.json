@@ -1,0 +1,338 @@
+{
+  "dataset_id": "pochta",
+  "version": "1",
+  "synthetic": false,
+  "title": "Почта России: раскрытие фрагмента данных через аккаунт подрядчика в июле 2022",
+  "entities": [
+    {
+      "id": "pochta",
+      "dataset_id": "pochta",
+      "label": "Organization",
+      "name": "Почта России",
+      "role": "customer",
+      "scope_note": "Российская компания; рассматривается только июльский инцидент 2022 года. Октябрьские сообщения о другой базе не объединяются с ним.",
+      "synthetic": false
+    },
+    {
+      "id": "undisclosed_contractor",
+      "dataset_id": "pochta",
+      "label": "Organization",
+      "name": "Неназванный подрядчик Почты России",
+      "role": "unidentified_contractor",
+      "scope_note": "Место для участника, существование которого следует из заявления заказчика. Название, юридическое лицо, страна и вид работ не раскрыты; российская регистрация подрядчика не предполагается.",
+      "synthetic": false
+    },
+    {
+      "id": "contractor_access",
+      "dataset_id": "pochta",
+      "label": "Service",
+      "name": "Подрядное взаимодействие с доступом к фрагменту данных",
+      "kind": "service",
+      "description": "Зафиксировано существование учётной записи подрядчика. Наименование услуги, протокол доступа и полный периметр неизвестны."
+    },
+    {
+      "id": "shipment_information",
+      "dataset_id": "pochta",
+      "label": "Process",
+      "name": "Обработка и защита сведений об отправлениях",
+      "owner_id": "pochta",
+      "description": "Аналитическое обозначение затронутого информационного процесса; остановка физической доставки не установлена.",
+      "threshold": null,
+      "threshold_origin": "unknown",
+      "threshold_evidence_ids": []
+    },
+    {
+      "id": "shipment_fragment",
+      "dataset_id": "pochta",
+      "label": "DataCategory",
+      "name": "Фрагмент сведений об отправлениях",
+      "description": "Компания признала раскрытие фрагмента; точный состав и объём независимо не установлены. Банковские данные, по заявлению компании, не затронуты. Реальные персональные данные не загружаются."
+    },
+    {
+      "id": "src_ria_post",
+      "dataset_id": "pochta",
+      "label": "Source",
+      "title": "Почта России подтвердила частичную утечку данных абонентов у подрядчика",
+      "publisher": "РИА Новости",
+      "url": "https://ria.ru/20220729/dannye-1806002443.html",
+      "published_at": "2022-07-29",
+      "accessed_at": "2026-10-26",
+      "excerpt": "банковские данные клиентов не пострадали",
+      "limitations": "Прямой комментарий компании агентству; страница прочитана по HTTP, web-представление не загрузилось. Число записей и личность подрядчика не подтверждены; исходные утёкшие базы не изучались."
+    },
+    {
+      "id": "src_rbc_post",
+      "dataset_id": "pochta",
+      "label": "Source",
+      "title": "Роскомнадзор потребовал от Почты России объяснений из-за утечки данных",
+      "publisher": "РБК",
+      "url": "https://www.rbc.ru/society/30/07/2022/62e469989a794777226b04d4",
+      "published_at": "2022-07-30",
+      "accessed_at": "2026-10-26",
+      "excerpt": "одна из учетных записей подрядчика была скомпрометирована",
+      "limitations": "Прямой комментарий заказчика РБК и сообщение регулятора со ссылкой на ТАСС. Запрос объяснений не означает установленный штраф. Заявление об ограниченном фрагменте не является независимой оценкой размера утечки."
+    },
+    {
+      "id": "p_provider",
+      "dataset_id": "pochta",
+      "label": "Assertion",
+      "subject_id": "undisclosed_contractor",
+      "predicate": "PROVIDES",
+      "object_id": "contractor_access",
+      "status": "source_supported",
+      "as_of_date": "2022-07-29",
+      "scope_note": "Заказчик прямо упомянул аккаунт своего подрядчика. Конкретная организация и услуга неизвестны; название узла является обозначением пробела в сведениях.",
+      "evidence_ids": [
+        "src_rbc_post",
+        "src_ria_post"
+      ],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "p_uses",
+      "dataset_id": "pochta",
+      "label": "Assertion",
+      "subject_id": "shipment_information",
+      "predicate": "USES",
+      "object_id": "contractor_access",
+      "status": "source_supported",
+      "as_of_date": "2022-07-29",
+      "scope_note": "Контур сведений был доступен через учётную запись подрядчика в пределах признанного фрагмента; не утверждается доступ к полной базе или остановка доставки.",
+      "evidence_ids": [
+        "src_rbc_post"
+      ],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "p_owner",
+      "dataset_id": "pochta",
+      "label": "Assertion",
+      "subject_id": "pochta",
+      "predicate": "OWNS_PROCESS",
+      "object_id": "shipment_information",
+      "status": "source_supported",
+      "as_of_date": "2022-07-29",
+      "scope_note": "Компания подтвердила утечку фрагмента сведений своего информационного контура.",
+      "evidence_ids": [
+        "src_ria_post"
+      ],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "account_compromised",
+      "dataset_id": "pochta",
+      "label": "Condition",
+      "description": "В июльском инциденте 2022 года аккаунт подрядчика был скомпрометирован по заявлению компании.",
+      "value": true,
+      "origin": "source_supported",
+      "evidence_ids": [
+        "src_rbc_post"
+      ],
+      "public_source_hint": "Датированные сообщения заказчика и поставщика об этом инциденте."
+    },
+    {
+      "id": "account_usable",
+      "dataset_id": "pochta",
+      "label": "Condition",
+      "description": "В момент раскрытия доступ через аккаунт позволил получить признанный фрагмент; позже компания сообщила о блокировке.",
+      "value": true,
+      "origin": "source_supported",
+      "evidence_ids": [
+        "src_rbc_post"
+      ],
+      "public_source_hint": "Датированные сообщения заказчика и поставщика об этом инциденте."
+    },
+    {
+      "id": "fragment_present",
+      "dataset_id": "pochta",
+      "label": "Condition",
+      "description": "Признанный фрагмент данных находился в доступном через этот аккаунт контуре.",
+      "value": true,
+      "origin": "source_supported",
+      "evidence_ids": [
+        "src_rbc_post"
+      ],
+      "public_source_hint": "Датированные сообщения заказчика и поставщика об этом инциденте."
+    },
+    {
+      "id": "P1",
+      "dataset_id": "pochta",
+      "label": "Scenario",
+      "name": "Почта России: историческая реконструкция июльской утечки 2022",
+      "incident_type": "disclosure",
+      "origin_id": "undisclosed_contractor",
+      "affected_service_id": "contractor_access",
+      "rule_ids": [
+        "p_access_rule",
+        "p_consumer_rule"
+      ],
+      "data_category_ids": [
+        "shipment_fragment"
+      ],
+      "analysis_context": "historical_reconstruction",
+      "incident_date": "2022-07-29",
+      "incident_date_basis": "reported_on",
+      "calculation_model": "none",
+      "description": "Разбор признанного заказчиком раскрытия фрагмента через аккаунт подрядчика. 29 июля — дата публичного сообщения, точное время начала атаки неизвестно. Текущее состояние доступа не выводится из истории."
+    },
+    {
+      "id": "fragment_disclosure",
+      "dataset_id": "pochta",
+      "label": "Observation",
+      "scenario_id": "P1",
+      "process_id": "shipment_information",
+      "reported_on": "2022-07-29",
+      "description": "Компания подтвердила раскрытие фрагмента сведений",
+      "status": "source_supported",
+      "kind": "business_effect",
+      "metric": "data_fragment_disclosed",
+      "value": null,
+      "unit": "качественно",
+      "subject_ref": null,
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_ria_post",
+        "src_rbc_post"
+      ],
+      "limitations": "Объём и денежный ущерб неизвестны; заявления о миллионах строк не использованы как подтверждённые значения."
+    },
+    {
+      "id": "account_blocked",
+      "dataset_id": "pochta",
+      "label": "Observation",
+      "scenario_id": "P1",
+      "process_id": "shipment_information",
+      "reported_on": "2022-07-29",
+      "description": "Компания сообщила о блокировке скомпрометированного доступа",
+      "status": "source_supported",
+      "kind": "response",
+      "metric": "account_blocked",
+      "value": null,
+      "unit": "качественно",
+      "subject_ref": null,
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_ria_post",
+        "src_rbc_post"
+      ],
+      "limitations": "Блокировка после обнаружения; не утверждается предотвращение уже произошедшего раскрытия."
+    },
+    {
+      "id": "access_review",
+      "dataset_id": "pochta",
+      "label": "Observation",
+      "scenario_id": "P1",
+      "process_id": "shipment_information",
+      "reported_on": "2022-07-29",
+      "description": "Компания сообщила о перепроверке точек доступа",
+      "status": "source_supported",
+      "kind": "response",
+      "metric": "access_review",
+      "value": null,
+      "unit": "качественно",
+      "subject_ref": null,
+      "basis": "company_statement",
+      "evidence_ids": [
+        "src_ria_post",
+        "src_rbc_post"
+      ],
+      "limitations": "Сведения из заявления источника; денежный ущерб не установлен."
+    },
+    {
+      "id": "regulator_request",
+      "dataset_id": "pochta",
+      "label": "Observation",
+      "scenario_id": "P1",
+      "process_id": "shipment_information",
+      "reported_on": "2022-07-30",
+      "description": "Опубликовано сообщение о запросе Роскомнадзора с требованием детальной информации",
+      "status": "source_supported",
+      "kind": "response",
+      "metric": "regulator_request",
+      "value": null,
+      "unit": "качественно",
+      "subject_ref": null,
+      "basis": "regulator_statement",
+      "evidence_ids": [
+        "src_rbc_post"
+      ],
+      "limitations": "Сообщение ведомства процитировано РБК со ссылкой на ТАСС; итог проверки, штраф и точная дата отправки запроса не установлены."
+    }
+  ],
+  "rules": [
+    {
+      "id": "p_access_rule",
+      "description": "p_access_rule",
+      "assertion_ids": [
+        "p_provider"
+      ],
+      "direction": "forward",
+      "condition_ids": [
+        "account_compromised",
+        "account_usable",
+        "fragment_present"
+      ]
+    },
+    {
+      "id": "p_consumer_rule",
+      "description": "p_consumer_rule",
+      "assertion_ids": [
+        "p_uses"
+      ],
+      "direction": "reverse",
+      "condition_ids": []
+    }
+  ],
+  "dependency_groups": [],
+  "parameters": {
+    "lambda": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "T": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "mu_b": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "mu_r": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "volume": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "change_scale": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "recoverable": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "threshold": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    }
+  },
+  "severity_policy": {
+    "origin": "assumption",
+    "evidence_ids": [],
+    "categories": {}
+  },
+  "sha256": "92a0d9950d4eeb2023d8bc152073721ff28d9ec0149767f7024d8cbd375afdac"
+}

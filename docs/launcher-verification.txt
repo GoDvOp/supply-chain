@@ -1,0 +1,15 @@
+Проверка чистого запуска приложения 1.2.0
+Дата завершения: 2026-10-27T14:20:23.471539+00:00
+Новая папка с пробелом в пути; исходно без .env и outputs; отдельный проект Compose и новый том Neo4j.
+no_local_config_or_outputs_in_clean_copy: passed
+generated_private_env: passed
+all_case_reports_created: passed
+sensitivity_results: passed
+compact_graph_and_history: passed
+full_test_suite: passed
+repeat_start_is_idempotent: passed
+stop_preserves_volume_and_closes_listener: passed
+restart_preserves_data_and_password: passed
+working_project_configuration_unchanged: passed
+isolated_resource_cleanup: passed
+Рабочая конфигурация проекта не изменена.

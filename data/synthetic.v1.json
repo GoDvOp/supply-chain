@@ -1,0 +1,307 @@
+{
+  "dataset_id": "synthetic",
+  "version": "1",
+  "synthetic": true,
+  "title": "Синтетический резерв и общая инфраструктура",
+  "entities": [
+    {
+      "id": "customer",
+      "dataset_id": "synthetic",
+      "label": "Organization",
+      "name": "Синтетический заказчик",
+      "role": "customer",
+      "scope_note": "Синтетическая организация",
+      "synthetic": true
+    },
+    {
+      "id": "primary",
+      "dataset_id": "synthetic",
+      "label": "Organization",
+      "name": "Основной оператор",
+      "role": "provider",
+      "scope_note": "Синтетическая организация",
+      "synthetic": true
+    },
+    {
+      "id": "backup",
+      "dataset_id": "synthetic",
+      "label": "Organization",
+      "name": "Резервный оператор",
+      "role": "provider",
+      "scope_note": "Синтетическая организация",
+      "synthetic": true
+    },
+    {
+      "id": "infra_provider",
+      "dataset_id": "synthetic",
+      "label": "Organization",
+      "name": "Общий инфраструктурный поставщик",
+      "role": "provider",
+      "scope_note": "Синтетическая организация",
+      "synthetic": true
+    },
+    {
+      "id": "main_service",
+      "dataset_id": "synthetic",
+      "label": "Service",
+      "name": "Основная EDI-услуга",
+      "kind": "service",
+      "description": "Основная EDI-услуга"
+    },
+    {
+      "id": "backup_service",
+      "dataset_id": "synthetic",
+      "label": "Service",
+      "name": "Резервная EDI-услуга",
+      "kind": "service",
+      "description": "Резервная EDI-услуга"
+    },
+    {
+      "id": "shared_service",
+      "dataset_id": "synthetic",
+      "label": "Service",
+      "name": "Общая инфраструктурная услуга",
+      "kind": "service",
+      "description": "Общая инфраструктурная услуга"
+    },
+    {
+      "id": "delivery",
+      "dataset_id": "synthetic",
+      "label": "Process",
+      "name": "Синтетический обмен документами",
+      "owner_id": "customer",
+      "description": "Синтетический обмен документами",
+      "threshold": null,
+      "threshold_origin": "unknown",
+      "threshold_evidence_ids": []
+    },
+    {
+      "id": "s_main",
+      "dataset_id": "synthetic",
+      "label": "Assertion",
+      "subject_id": "primary",
+      "predicate": "PROVIDES",
+      "object_id": "main_service",
+      "status": "synthetic",
+      "as_of_date": null,
+      "scope_note": "Полностью синтетическая связь для проверки алгоритма.",
+      "evidence_ids": [],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "s_backup",
+      "dataset_id": "synthetic",
+      "label": "Assertion",
+      "subject_id": "backup",
+      "predicate": "PROVIDES",
+      "object_id": "backup_service",
+      "status": "synthetic",
+      "as_of_date": null,
+      "scope_note": "Полностью синтетическая связь для проверки алгоритма.",
+      "evidence_ids": [],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "s_shared",
+      "dataset_id": "synthetic",
+      "label": "Assertion",
+      "subject_id": "infra_provider",
+      "predicate": "PROVIDES",
+      "object_id": "shared_service",
+      "status": "synthetic",
+      "as_of_date": null,
+      "scope_note": "Полностью синтетическая связь для проверки алгоритма.",
+      "evidence_ids": [],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "s_main_shared",
+      "dataset_id": "synthetic",
+      "label": "Assertion",
+      "subject_id": "main_service",
+      "predicate": "DEPENDS_ON",
+      "object_id": "shared_service",
+      "status": "synthetic",
+      "as_of_date": null,
+      "scope_note": "Полностью синтетическая связь для проверки алгоритма.",
+      "evidence_ids": [],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "s_backup_shared",
+      "dataset_id": "synthetic",
+      "label": "Assertion",
+      "subject_id": "backup_service",
+      "predicate": "DEPENDS_ON",
+      "object_id": "shared_service",
+      "status": "synthetic",
+      "as_of_date": null,
+      "scope_note": "Полностью синтетическая связь для проверки алгоритма.",
+      "evidence_ids": [],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "s_process_main",
+      "dataset_id": "synthetic",
+      "label": "Assertion",
+      "subject_id": "delivery",
+      "predicate": "DEPENDS_ON",
+      "object_id": "main_service",
+      "status": "synthetic",
+      "as_of_date": null,
+      "scope_note": "Полностью синтетическая связь для проверки алгоритма.",
+      "evidence_ids": [],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "s_process_backup",
+      "dataset_id": "synthetic",
+      "label": "Assertion",
+      "subject_id": "delivery",
+      "predicate": "DEPENDS_ON",
+      "object_id": "backup_service",
+      "status": "synthetic",
+      "as_of_date": null,
+      "scope_note": "Полностью синтетическая связь для проверки алгоритма.",
+      "evidence_ids": [],
+      "review_after_days": null,
+      "conflicts_with": []
+    },
+    {
+      "id": "local",
+      "dataset_id": "synthetic",
+      "label": "Scenario",
+      "name": "Локальный отказ основного оператора",
+      "incident_type": "availability",
+      "origin_id": "primary",
+      "affected_service_id": "main_service",
+      "rule_ids": [
+        "r_provider",
+        "r_depend"
+      ],
+      "data_category_ids": [],
+      "description": "Условный исходный инцидент. Последствия зависят от явно перечисленных условий."
+    },
+    {
+      "id": "common",
+      "dataset_id": "synthetic",
+      "label": "Scenario",
+      "name": "Отказ общей услуги",
+      "incident_type": "availability",
+      "origin_id": "infra_provider",
+      "affected_service_id": "shared_service",
+      "rule_ids": [
+        "r_provider",
+        "r_depend"
+      ],
+      "data_category_ids": [],
+      "description": "Условный исходный инцидент. Последствия зависят от явно перечисленных условий."
+    }
+  ],
+  "rules": [
+    {
+      "id": "r_provider",
+      "description": "r_provider",
+      "assertion_ids": [
+        "s_main",
+        "s_backup",
+        "s_shared"
+      ],
+      "direction": "forward",
+      "condition_ids": []
+    },
+    {
+      "id": "r_depend",
+      "description": "r_depend",
+      "assertion_ids": [
+        "s_main_shared",
+        "s_backup_shared",
+        "s_process_main",
+        "s_process_backup"
+      ],
+      "direction": "reverse",
+      "condition_ids": []
+    }
+  ],
+  "parameters": {
+    "lambda": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "T": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "mu_b": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "mu_r": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "volume": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "change_scale": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "recoverable": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    },
+    "threshold": {
+      "value": null,
+      "origin": "unknown",
+      "evidence_ids": []
+    }
+  },
+  "dependency_groups": [
+    {
+      "id": "g_main",
+      "consumer_id": "main_service",
+      "service_ids": [
+        "shared_service"
+      ],
+      "operator": "AND"
+    },
+    {
+      "id": "g_backup",
+      "consumer_id": "backup_service",
+      "service_ids": [
+        "shared_service"
+      ],
+      "operator": "AND"
+    },
+    {
+      "id": "g_delivery",
+      "consumer_id": "delivery",
+      "service_ids": [
+        "main_service",
+        "backup_service"
+      ],
+      "operator": "OR"
+    }
+  ],
+  "sha256": "6ba5d8041e45bf985abf5ef8b68e38a9fdb662cd85fc2414b04ab14ef7d30333",
+  "severity_policy": {
+    "origin": "synthetic",
+    "evidence_ids": [],
+    "categories": {}
+  }
+}

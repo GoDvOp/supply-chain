@@ -1,0 +1,35 @@
+{
+  "conditions": {
+    "flow_affected": {
+      "value": true,
+      "explanation": "Экспериментальное условие, не факт о компании."
+    }
+  },
+  "parameters": {
+    "lambda": {
+      "value": 100,
+      "explanation": "Проектная гипотеза для демонстрации."
+    },
+    "T": {
+      "value": 8,
+      "explanation": "Проектная гипотеза для демонстрации."
+    },
+    "mu_b": {
+      "value": 0,
+      "explanation": "Проектная гипотеза для демонстрации."
+    },
+    "mu_r": {
+      "value": 300,
+      "explanation": "Проектная гипотеза для демонстрации."
+    },
+    "threshold": {
+      "value": {
+        "metric": "total_time",
+        "first": 8,
+        "second": 11,
+        "origin": "проектная гипотеза"
+      },
+      "explanation": "Проектная гипотеза для демонстрации."
+    }
+  }
+}

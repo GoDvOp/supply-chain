@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "project_version": "1.2.0",
+  "started_at": "2026-10-27T14:17:47.943984+00:00",
+  "execution": "isolated clean copy; new environment and Neo4j volume",
+  "runtime_input_sha256": "ed81d5d543a3fcbe8cb9b24d38ef44c90195644ac2402b60f7370e95e03428ae",
+  "checks": [
+    {
+      "name": "no_local_config_or_outputs_in_clean_copy",
+      "status": "passed"
+    },
+    {
+      "name": "generated_private_env",
+      "status": "passed"
+    },
+    {
+      "name": "all_case_reports_created",
+      "status": "passed"
+    },
+    {
+      "name": "sensitivity_results",
+      "status": "passed",
+      "combinations": 27,
+      "non_draining": 12
+    },
+    {
+      "name": "compact_graph_and_history",
+      "status": "passed",
+      "nodes": 20,
+      "relationships": 17,
+      "summaries": 4,
+      "detail_nodes_in_overview": 0,
+      "observations": {
+        "rossiya": 23,
+        "pochta": 4
+      }
+    },
+    {
+      "name": "full_test_suite",
+      "status": "passed",
+      "passed": 87
+    },
+    {
+      "name": "repeat_start_is_idempotent",
+      "status": "passed"
+    },
+    {
+      "name": "stop_preserves_volume_and_closes_listener",
+      "status": "passed"
+    },
+    {
+      "name": "restart_preserves_data_and_password",
+      "status": "passed"
+    },
+    {
+      "name": "working_project_configuration_unchanged",
+      "status": "passed"
+    }
+  ],
+  "isolated_resource_cleanup": "passed",
+  "finished_at": "2026-10-27T14:20:23.471539+00:00",
+  "runtime_fingerprint_scope": "publication runtime, configuration, datasets and tests; README and docs excluded"
+}

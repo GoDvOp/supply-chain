@@ -1,0 +1,34 @@
+{
+  "conditions": {
+    "update_product": {
+      "value": true,
+      "explanation": "Экспериментальное условие, не факт о компании."
+    },
+    "package_installed": {
+      "value": true,
+      "explanation": "Экспериментальное условие, не факт о компании."
+    },
+    "checks_bypassed": {
+      "value": true,
+      "explanation": "Экспериментальное условие, не факт о компании."
+    },
+    "component_can_modify": {
+      "value": true,
+      "explanation": "Экспериментальное условие, не факт о компании."
+    }
+  },
+  "parameters": {
+    "volume": {
+      "value": 500,
+      "explanation": "Проектная гипотеза для демонстрации."
+    },
+    "change_scale": {
+      "value": 150,
+      "explanation": "Проектная гипотеза для демонстрации."
+    },
+    "recoverable": {
+      "value": true,
+      "explanation": "Проектная гипотеза для демонстрации."
+    }
+  }
+}
